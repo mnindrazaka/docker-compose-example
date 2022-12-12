@@ -41,6 +41,8 @@ func main() {
 			return
 		}
 
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT, OPTIONS")
 		w.Write(jsonData)
 	})
 	http.ListenAndServe(":3000", router)
